@@ -1,0 +1,135 @@
+; mmn11 - Grade: 97
+
+; Question 1
+
+#lang racket
+
+(require "utils.scm")
+
+(define (flatten-list lst)
+  (define result '())
+  (define (flatten-inner lst)
+    (if (list? lst)
+        (if (not (empty? lst))
+            (begin (flatten-inner (cdr lst)) (flatten-inner (car lst)))
+            null)
+        (set! result (cons lst result))))
+  (flatten-inner lst)
+  result)
+
+; Unit Tests
+(equal?? (flatten-list '( (1 2) ((3)) (4 5 6))) '(1 2 3 4 5 6))
+(equal?? (flatten-list '( (a) (b) ((c)) (d) (e f))) '(a b c d e f))
+(report-unit-tests-completed 'flatten-list)
+
+
+
+; Question 2.a
+
+#lang racket
+
+(require "utils.scm")
+
+(define (count-elements pred lst)
+  (if (= 0 (length lst))
+      0
+      (if (pred (car lst))
+          (+ 1 (count-elements pred (cdr lst)))
+          (count-elements pred (cdr lst)))))
+
+; Unit Tests
+(equal?? (count-elements positive? '(1 3 -7 9 -2)) '3)
+(equal?? (count-elements number? '(1 3 -7 9 -2)) '5)
+(equal?? (count-elements number? '(1 3 "s" 9 -2)) '4)
+(report-unit-tests-completed 'count-elements)
+
+
+; Question 2.b
+
+#lang racket
+
+(require "utils.scm")
+
+(define (count-foldr pred lst)
+  (foldr (lambda (n sum) (if (pred n) (+ 1 sum) sum)) 0 lst))
+
+; Unit Tests
+(equal?? (count-foldr positive? '(1 3 -7 9 -2)) '3)
+(equal?? (count-foldr number? '(1 3 -7 9 -2)) '5)
+(equal?? (count-foldr number? '(1 3 "s" 9 -2)) '4)
+(report-unit-tests-completed 'count-foldr)
+
+
+
+; Question 3 
+
+
+#lang racket
+
+(require "utils.scm")
+
+(define (my_partition pred lst)
+  (let* ((partitioned (foldr (lambda (elem acc)
+                               (if (pred elem)
+                                   (cons (cons elem (car acc)) (cdr acc))
+                                   (cons (car acc) (cons elem (cdr acc)))))
+                             '(() )
+                             lst))
+         (set1 (car pred))
+         (set2 (cdr pred)))
+  (list set1 set2)))
+
+; Unit Tests
+(equal?? (my_partition even? '(1 2 3 4 5 6)) '((2 4 6) (1 3 5)))
+(report-unit-tests-completed 'my_partition)
+
+
+
+
+
+; Question 4
+
+
+(define foo
+  (lamvda (ls s)
+          (cond
+            [(null? ls) `((). ,s)]
+            [(pair? (car ls))
+             (let ((p (foo (car ls) s)))
+               (let ((p1 (foo (cdr ls) (cdr p))))
+                 `(,(cons (car p) (car p1)). ,(cdr p1))))]
+            [(or (null? (car ls)) (odd? (car ls)))
+             (let ((p (foo (cdr ls) s)))
+               `(,(cons (car ls) (car p)). ,(cdr p)))]
+            [else (let ((p (foo (cdr ls) s)))
+                    `(,(car p). ,(add1 (cdr p))))])))
+
+
+(equal?? (foo `(2 3 ( 7 4 5 6) 8 (9) 2) 0) `((3 (7 5) (9)) .5))
+(equal?? (foo `(2 3 ( 7 4 5 6 (10 11 13 12)) 8 (9) 2) 0) `((3 (7 5 (11 13)) (9)) .7))
+(report-unit-tests-completed 'foo)
+
+
+
+
+; utils.scm
+
+(module utils
+  (lib "eopl.ss" "eopl")
+
+  (provide equal?? report-unit-tests-completed)
+
+  (define-syntax equal??
+    (syntax-rules ()
+      ((_ x y)
+       (let ((x^ x) (y^ y))
+         (if (not (equal? x y))
+             (eopl:error 'equal??
+                         "~s is not equal to ~s" 'x 'y))))))
+
+  (define report-unit-tests-completed
+    (lambda (fn-name)
+      (eopl:printf "Unit tests completed: ~s~%" fn-name))))
+
+
+; Thanks :)
