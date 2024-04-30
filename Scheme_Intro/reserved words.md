@@ -20,180 +20,240 @@
 
 ## define 
 
-Description: Defines a new variable or function.
+**Description:** Defines a new variable or function.
 
-Example:
+**Structure:** Variable and Function Definition
+
+**Example:**
    
-`(define x 10)`
+```scheme
+(define x 10)
+```
    
-Input: None
+**Input:** None
    
-Output: Value of `x` is now `10`.
+**Output:** Value of `x` is now `10`.
 
 ## lambda 
 
-Description: Creates an anonymous function.
+**Description:** Creates an anonymous function.
+
+**Structure:** Anonymous Function Creation
  
-Example:
+**Example:**
 
-`((lambda (x) (* x x)) 5)`
+```scheme
+((lambda (x) (* x x)) 5)
+```
 
-Input: `5`
+**Input:** `5`
 
-Output: `25`
+**Output:** `25`
 
 ## if 
 
-Description: Conditional statement.
+**Description:** Conditional statement.
 
-Example:
+**Structure:** Conditional Statement
 
-   `(if (> x 0) "positive" "non-positive")`
+**Example:**
 
-   Input: `x = 5`
+```scheme
+(if (> x 0) "positive" "non-positive")
+```
+   
+**Input:** `x = 5`
 
-   Output: `"positive"`
+**Output:** `"positive"`
 
 ## else 
 
-Description: Part of a conditional statement to handle alternative cases.
+**Description:** Part of a conditional statement to handle alternative cases.
 
-Example:
+**Structure:** Alternative Case Handling
 
-`(if (> x 0) "positive" (if (= x 0) "zero" "negative"))`
+**Example:**
 
-   Input: `x = -3`
+```scheme
+(if (> x 0) "positive" (if (= x 0) "zero" "negative"))
+```
 
-   Output: `"negative"`
+**Input:** `x = -3`
+
+**Output:** `"negative"`
 
 ## cond 
 
 **Description:** Multi-branch conditional statement.
 
-   Example:
+**Structure:** Multi-branch Conditional Statement
 
-   `(cond ((= x 0) "zero") ((> x 0) "positive") (else "negative"))`
+**Example:**
 
-   Input: `x = 10`
+```scheme
+(cond ((= x 0) "zero") ((> x 0) "positive") (else "negative"))
+```
 
-   Output: `"positive"`
+**Input:** `x = 10`
+
+**Output:** `"positive"`
 
 ## let 
 
 **Description:**  Binds variables to values locally.
 
-   Example:
+**Structure:** Local Variable Binding
 
-   `(let ((x 10) (y 20)) (+ x y))`
+**Example:**
+
+```scheme
+(let ((x 10) (y 20)) (+ x y))
+```
    
-   Input: None
+**Input:** None
    
-   Output: `30`
+**Output:** `30`
 
 ## let* 
 
 **Description:**  Similar to let, but variables are defined sequentially.
 
-   Example:
+**Structure:** Sequential Variable Binding
 
-   `(let* ((x 10) (y (+ x 5))) y)`
+**Example:**
+
+```scheme
+(let* ((x 10) (y (+ x 5))) y)
+```
+
+**Input:** None
    
-   Input: None
-   
-   Output: `15`
+**Output:** `15`
 
 ## letrec 
 
 **Description:**  Defines local recursive functions.
 
-Example:
+**Structure:** Local Recursive Function Definition
+
+**Example:**
    
-`(letrec ((fact (lambda (n) (if (= n 0) 1 (* n (fact (- n 1))))))) (fact 5))`
+```scheme
+(letrec ((fact (lambda (n) (if (= n 0) 1 (* n (fact (- n 1))))))) (fact 5))
+```
    
-Input: None
+**Input:** None
    
-Output: `120`
+**Output:** `120`
 
 ## and 
 
 **Description:**  Logical AND operator.
 
-Example:
+**Structure:** Logical AND Operator
+
+**Example:**
    
-`(and (> x 5) (< x 10))`
+```scheme
+(and (> x 5) (< x 10))
+```
+
+**Input:** `x = 7`
    
-Input: `x = 7`
-   
-Output: `#t`
+**Output:** `#t`
 
 ## or 
 
 **Description:**  Logical OR operator.
 
-Example:
+**Structure:** Logical OR Operator
 
-`(or (= x 0) (= x 1))`
+**Example:**
+
+```scheme
+(or (= x 0) (= x 1))
+```
     
-Input: `x = 0`
+**Input:** `x = 0`
 
-Output: `#t`
+**Output:** `#t`
 
 ## quote 
 
 **Description:**  Prevents evaluation of an expression.
 
-Example:
+**Structure:** Expression Prevention
 
-`(quote (+ 1 2))`
+**Example:**
 
-Input: None
+```scheme
+(quote (+ 1 2))
+```
 
-Output: `(+ 1 2)`
+**Input:** None
+
+**Output:** `(+ 1 2)`
 
 ## set!
 
 **Description:**  Modifies the value of a variable.
 
-Example:
+**Structure:** Variable Value Modification
 
-`(set! x 20)`
+**Example:**
 
-Input: None
+```scheme
+(set! x 20)
+```
 
-Output: Value of `x` is now `20`.
+**Input:** None
+
+**Output:** Value of `x` is now `20`.
 
 ## begin 
 
 **Description:**  Evaluates a sequence of expressions, returning the value of the last one.
 
-Example:
+**Structure:** Expression Sequence Evaluation
 
-`(begin (display "Hello, ") (display "world!"))`
+**Example:**
 
-Input: None
+```scheme
+(begin (display "Hello, ") (display "world!"))
+```
 
-Output: `Hello, world!`
+**Input:** None
+
+**Output:** `Hello, world!`
 
 ## do 
 
 **Description:**  Used for iteration.
 
-Example:
+**Structure:** Iteration Control
 
-`(do ((i 0 (+ i 1))) ((= i 5) 'done) (display i))`
+**Example:**
 
-Input: None
+```scheme
+(do ((i 0 (+ i 1))) ((= i 5) 'done) (display i))
+```
 
-Output: `01234`
+**Input:** None
+
+**Output:** `01234`
 
 ## case 
 
 **Description:**  A variant of cond for multi-branch conditionals.
 
-Example:
+**Structure:** Multi-branch Conditional Variant
 
-`(case x ((1) "one") ((2) "two") (else "other"))`
+**Example:**
 
-Input: `x = 2`
+```scheme
+(case x ((1) "one") ((2) "two") (else "other"))
+```
 
-Output: `"two"`
+**Input:** `x = 2`
+
+**Output:** `"two"`
