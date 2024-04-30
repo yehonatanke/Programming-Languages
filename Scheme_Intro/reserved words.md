@@ -16,154 +16,154 @@
 14. [do](#do)
 15. [case](#case)
 
-## Reserved Words - Extended
+# Reserved Words - Extended
 
-1. **define**: Defines a new variable or function.
+## define: Defines a new variable or function.
 
-    Example:
+Example:
    
-   ```(define x 10)```
+`(define x 10)`
    
-   Input: None
+Input: None
    
-   Output: Value of `x` is now `10`.
+Output: Value of `x` is now `10`.
 
-2. **lambda**: Creates an anonymous function.
+## lambda: Creates an anonymous function.
  
-   Example:
+Example:
 
-    ```((lambda (x) (* x x)) 5)```
+`((lambda (x) (* x x)) 5)`
 
-   Input: `5`
+Input: `5`
 
-   Output: `25`
+Output: `25`
 
-3. **if**: Conditional statement.
+## if: Conditional statement.
 
-   Example:
+Example:
 
-   ```(if (> x 0) "positive" "non-positive")```
+   `(if (> x 0) "positive" "non-positive")`
 
    Input: `x = 5`
 
    Output: `"positive"`
 
-4. **else**: Part of a conditional statement to handle alternative cases.
+## else: Part of a conditional statement to handle alternative cases.
 
    Example:
 
-   ```(if (> x 0) "positive" (if (= x 0) "zero" "negative"))```
+   `(if (> x 0) "positive" (if (= x 0) "zero" "negative"))`
 
    Input: `x = -3`
 
    Output: `"negative"`
 
-5. **cond**: Multi-branch conditional statement.
+## cond: Multi-branch conditional statement.
 
    Example:
 
-   ```(cond ((= x 0) "zero") ((> x 0) "positive") (else "negative"))```
+   `(cond ((= x 0) "zero") ((> x 0) "positive") (else "negative"))`
 
    Input: `x = 10`
 
    Output: `"positive"`
 
-6. **let**: Binds variables to values locally.
+## let: Binds variables to values locally.
 
    Example:
 
-   ```(let ((x 10) (y 20)) (+ x y))```
+   `(let ((x 10) (y 20)) (+ x y))`
    
    Input: None
    
    Output: `30`
 
-7. **let***: Similar to let, but variables are defined sequentially.
+## let*: Similar to let, but variables are defined sequentially.
 
    Example:
 
-   ```(let* ((x 10) (y (+ x 5))) y)```
+   `(let* ((x 10) (y (+ x 5))) y)`
    
    Input: None
    
    Output: `15`
 
-8. **letrec**: Defines local recursive functions.
+## letrec: Defines local recursive functions.
 
-   Example:
+Example:
    
-   ```(letrec ((fact (lambda (n) (if (= n 0) 1 (* n (fact (- n 1))))))) (fact 5))```
+`(letrec ((fact (lambda (n) (if (= n 0) 1 (* n (fact (- n 1))))))) (fact 5))`
    
-   Input: None
+Input: None
    
-   Output: `120`
+Output: `120`
 
-9. **and**: Logical AND operator.
+## and: Logical AND operator.
 
-   Example:
+Example:
    
-   ```(and (> x 5) (< x 10))```
+`(and (> x 5) (< x 10))`
    
-   Input: `x = 7`
+Input: `x = 7`
    
-   Output: `#t`
+Output: `#t`
 
-10. **or**: Logical OR operator.
+## or: Logical OR operator.
 
-     Example:
+Example:
 
-    ```(or (= x 0) (= x 1))```
+`(or (= x 0) (= x 1))`
+    
+Input: `x = 0`
 
-    Input: `x = 0`
+Output: `#t`
 
-    Output: `#t`
+## quote: Prevents evaluation of an expression.
 
-11. **quote**: Prevents evaluation of an expression.
+Example:
 
-    Example:
+`(quote (+ 1 2))`
 
-    ```(quote (+ 1 2))```
+Input: None
 
-    Input: None
+Output: `(+ 1 2)`
 
-    Output: `(+ 1 2)`
+## set!: Modifies the value of a variable.
 
-12. **set!**: Modifies the value of a variable.
+Example:
 
-    Example:
+`(set! x 20)`
 
-    ```(set! x 20)```
+Input: None
 
-    Input: None
+Output: Value of `x` is now `20`.
 
-    Output: Value of `x` is now `20`.
+## begin: Evaluates a sequence of expressions, returning the value of the last one.
 
-13. **begin**: Evaluates a sequence of expressions, returning the value of the last one.
+Example:
 
-    Example:
+`(begin (display "Hello, ") (display "world!"))`
 
-    ```(begin (display "Hello, ") (display "world!"))```
+Input: None
 
-    Input: None
+Output: `Hello, world!`
 
-    Output: `Hello, world!`
+## do: Used for iteration.
 
-14. **do**: Used for iteration.
+Example:
 
-    Example:
+`(do ((i 0 (+ i 1))) ((= i 5) 'done) (display i))`
 
-    ```(do ((i 0 (+ i 1))) ((= i 5) 'done) (display i))```
+Input: None
 
-    Input: None
+Output: `01234`
 
-    Output: `01234`
+## case: A variant of cond for multi-branch conditionals.
 
-15. **case**: A variant of cond for multi-branch conditionals.
+Example:
 
-    Example:
+`(case x ((1) "one") ((2) "two") (else "other"))`
 
-    ```(case x ((1) "one") ((2) "two") (else "other"))```
+Input: `x = 2`
 
-    Input: `x = 2`
-
-    Output: `"two"`
+Output: `"two"`
