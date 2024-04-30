@@ -43,7 +43,11 @@
 **Example:**
 
 ```scheme
-((lambda (x) (* x x)) 5)
+# ((lambda (x) (* x x)) 5)
+
+((lambda (x)
+   (* x x))
+ 5)
 ```
 
 **Input:** `5`
@@ -124,7 +128,10 @@
 **Example:**
 
 ```scheme
-(let ((x 10) (y 20)) (+ x y))
+# (let ((x 10) (y 20)) (+ x y))
+
+(let ((x 10) (y 20))
+  (+ x y))
 ```
    
 **Input:** None
@@ -140,7 +147,11 @@
 **Example:**
 
 ```scheme
-(let* ((x 10) (y (+ x 5))) y)
+# (let* ((x 10) (y (+ x 5))) y)
+
+(let* ((x 10)
+       (y (+ x 5)))
+  y)
 ```
 
 **Input:** None
@@ -156,7 +167,14 @@
 **Example:**
    
 ```scheme
-(letrec ((fact (lambda (n) (if (= n 0) 1 (* n (fact (- n 1))))))) (fact 5))
+# (letrec ((fact (lambda (n) (if (= n 0) 1 (* n (fact (- n 1))))))) (fact 5))
+
+(letrec ((fact (lambda (n)
+                 (if (= n 0)
+                     1
+                     (* n (fact (- n 1)))))))
+  (fact 5))
+
 ```
    
 **Input:** None
@@ -172,7 +190,10 @@
 **Example:**
    
 ```scheme
-(and (> x 5) (< x 10))
+# (and (> x 5) (< x 10))
+
+(and (> x 5)
+     (< x 10))
 ```
 
 **Input:** `x = 7`
@@ -188,7 +209,10 @@
 **Example:**
 
 ```scheme
-(or (= x 0) (= x 1))
+# (or (= x 0) (= x 1))
+
+(or (= x 0)
+    (= x 1))
 ```
     
 **Input:** `x = 0`
@@ -236,7 +260,10 @@
 **Example:**
 
 ```scheme
-(begin (display "Hello, ") (display "world!"))
+# (begin (display "Hello, ") (display "world!"))
+
+(begin (display "Hello, ")
+       (display "world!"))
 ```
 
 **Input:** None
@@ -252,7 +279,11 @@
 **Example:**
 
 ```scheme
-(do ((i 0 (+ i 1))) ((= i 5) 'done) (display i))
+# (do ((i 0 (+ i 1))) ((= i 5) 'done) (display i))
+
+(do ((i 0 (+ i 1)))
+    ((= i 5) 'done)
+  (display i))
 ```
 
 **Input:** None
@@ -268,7 +299,11 @@
 **Example:**
 
 ```scheme
-(case x ((1) "one") ((2) "two") (else "other"))
+# (case x ((1) "one") ((2) "two") (else "other"))
+
+(case x ((1) "one")
+        ((2) "two")
+  (else "other"))
 ```
 
 **Input:** `x = 2`
