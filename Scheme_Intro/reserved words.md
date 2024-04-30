@@ -59,7 +59,12 @@
 **Example:**
 
 ```scheme
-(if (> x 0) "positive" "non-positive")
+# (if (> x 0) "positive" "non-positive")
+
+(if (> x 0)
+   "positive"
+   # else
+   "non-positive")
 ```
    
 **Input:** `x = 5`
@@ -75,7 +80,14 @@
 **Example:**
 
 ```scheme
-(if (> x 0) "positive" (if (= x 0) "zero" "negative"))
+# (if (> x 0) "positive" (if (= x 0) "zero" "negative"))
+
+(if (> x 0)
+    "positive"
+    (if (= x 0)
+        "zero"
+        "negative"))
+
 ```
 
 **Input:** `x = -3`
@@ -91,7 +103,12 @@
 **Example:**
 
 ```scheme
-(cond ((= x 0) "zero") ((> x 0) "positive") (else "negative"))
+# (cond ((= x 0) "zero") ((> x 0) "positive") (else "negative"))
+
+(cond 
+  ((= x 0) "zero") 
+  ((> x 0) "positive") 
+  (else "negative"))
 ```
 
 **Input:** `x = 10`
