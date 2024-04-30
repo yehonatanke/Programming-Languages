@@ -43,7 +43,7 @@
 **Example:**
 
 ```scheme
-# ((lambda (x) (* x x)) 5)
+; ((lambda (x) (* x x)) 5)
 
 ((lambda (x)
    (* x x))
@@ -63,11 +63,11 @@
 **Example:**
 
 ```scheme
-# (if (> x 0) "positive" "non-positive")
+; (if (> x 0) "positive" "non-positive")
 
 (if (> x 0)
    "positive"
-   # else
+   ; else
    "non-positive")
 ```
    
@@ -84,7 +84,7 @@
 **Example:**
 
 ```scheme
-# (if (> x 0) "positive" (if (= x 0) "zero" "negative"))
+; (if (> x 0) "positive" (if (= x 0) "zero" "negative"))
 
 (if (> x 0)
     "positive"
@@ -107,7 +107,7 @@
 **Example:**
 
 ```scheme
-# (cond ((= x 0) "zero") ((> x 0) "positive") (else "negative"))
+; (cond ((= x 0) "zero") ((> x 0) "positive") (else "negative"))
 
 (cond 
   ((= x 0) "zero") 
@@ -128,7 +128,7 @@
 **Example:**
 
 ```scheme
-# (let ((x 10) (y 20)) (+ x y))
+; (let ((x 10) (y 20)) (+ x y))
 
 (let ((x 10) (y 20))
   (+ x y))
@@ -147,7 +147,7 @@
 **Example:**
 
 ```scheme
-# (let* ((x 10) (y (+ x 5))) y)
+; (let* ((x 10) (y (+ x 5))) y)
 
 (let* ((x 10)
        (y (+ x 5)))
@@ -167,7 +167,7 @@
 **Example:**
    
 ```scheme
-# (letrec ((fact (lambda (n) (if (= n 0) 1 (* n (fact (- n 1))))))) (fact 5))
+; (letrec ((fact (lambda (n) (if (= n 0) 1 (* n (fact (- n 1))))))) (fact 5))
 
 (letrec ((fact (lambda (n)
                  (if (= n 0)
@@ -190,7 +190,7 @@
 **Example:**
    
 ```scheme
-# (and (> x 5) (< x 10))
+; (and (> x 5) (< x 10))
 
 (and (> x 5)
      (< x 10))
@@ -209,7 +209,7 @@
 **Example:**
 
 ```scheme
-# (or (= x 0) (= x 1))
+; (or (= x 0) (= x 1))
 
 (or (= x 0)
     (= x 1))
@@ -260,7 +260,7 @@
 **Example:**
 
 ```scheme
-# (begin (display "Hello, ") (display "world!"))
+; (begin (display "Hello, ") (display "world!"))
 
 (begin (display "Hello, ")
        (display "world!"))
@@ -279,7 +279,7 @@
 **Example:**
 
 ```scheme
-# (do ((i 0 (+ i 1))) ((= i 5) 'done) (display i))
+; (do ((i 0 (+ i 1))) ((= i 5) 'done) (display i))
 
 (do ((i 0 (+ i 1)))
     ((= i 5) 'done)
@@ -299,7 +299,7 @@
 **Example:**
 
 ```scheme
-# (case x ((1) "one") ((2) "two") (else "other"))
+; (case x ((1) "one") ((2) "two") (else "other"))
 
 (case x ((1) "one")
         ((2) "two")
