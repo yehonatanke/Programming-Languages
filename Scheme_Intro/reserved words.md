@@ -1,6 +1,6 @@
 # Reserved Words
 
-1. [define](##define)
+1. [define](#define)
 2. [lambda](#lambda)
 3. [if](#if)
 4. [else](#else)
@@ -18,7 +18,9 @@
 
 # Reserved Words - Extended
 
-## define: Defines a new variable or function.
+## define 
+
+Description: Defines a new variable or function.
 
 Example:
    
@@ -28,7 +30,9 @@ Input: None
    
 Output: Value of `x` is now `10`.
 
-## lambda: Creates an anonymous function.
+## lambda 
+
+Description: Creates an anonymous function.
  
 Example:
 
@@ -38,7 +42,9 @@ Input: `5`
 
 Output: `25`
 
-## if: Conditional statement.
+## if 
+
+Description: Conditional statement.
 
 Example:
 
@@ -48,17 +54,21 @@ Example:
 
    Output: `"positive"`
 
-## else: Part of a conditional statement to handle alternative cases.
+## else 
 
-   Example:
+Description: Part of a conditional statement to handle alternative cases.
 
-   `(if (> x 0) "positive" (if (= x 0) "zero" "negative"))`
+Example:
+
+`(if (> x 0) "positive" (if (= x 0) "zero" "negative"))`
 
    Input: `x = -3`
 
    Output: `"negative"`
 
-## cond: Multi-branch conditional statement.
+## cond 
+
+**Description:** Multi-branch conditional statement.
 
    Example:
 
@@ -68,7 +78,9 @@ Example:
 
    Output: `"positive"`
 
-## let: Binds variables to values locally.
+## let 
+
+**Description:**  Binds variables to values locally.
 
    Example:
 
@@ -78,7 +90,9 @@ Example:
    
    Output: `30`
 
-## let*: Similar to let, but variables are defined sequentially.
+## let* 
+
+**Description:**  Similar to let, but variables are defined sequentially.
 
    Example:
 
@@ -88,7 +102,9 @@ Example:
    
    Output: `15`
 
-## letrec: Defines local recursive functions.
+## letrec 
+
+**Description:**  Defines local recursive functions.
 
 Example:
    
@@ -98,7 +114,9 @@ Input: None
    
 Output: `120`
 
-## and: Logical AND operator.
+## and 
+
+**Description:**  Logical AND operator.
 
 Example:
    
@@ -108,7 +126,9 @@ Input: `x = 7`
    
 Output: `#t`
 
-## or: Logical OR operator.
+## or 
+
+**Description:**  Logical OR operator.
 
 Example:
 
@@ -118,7 +138,9 @@ Input: `x = 0`
 
 Output: `#t`
 
-## quote: Prevents evaluation of an expression.
+## quote 
+
+**Description:**  Prevents evaluation of an expression.
 
 Example:
 
@@ -128,7 +150,9 @@ Input: None
 
 Output: `(+ 1 2)`
 
-## set!: Modifies the value of a variable.
+## set!
+
+**Description:**  Modifies the value of a variable.
 
 Example:
 
@@ -138,7 +162,9 @@ Input: None
 
 Output: Value of `x` is now `20`.
 
-## begin: Evaluates a sequence of expressions, returning the value of the last one.
+## begin 
+
+**Description:**  Evaluates a sequence of expressions, returning the value of the last one.
 
 Example:
 
@@ -148,7 +174,9 @@ Input: None
 
 Output: `Hello, world!`
 
-## do: Used for iteration.
+## do 
+
+**Description:**  Used for iteration.
 
 Example:
 
@@ -158,7 +186,9 @@ Input: None
 
 Output: `01234`
 
-## case: A variant of cond for multi-branch conditionals.
+## case 
+
+**Description:**  A variant of cond for multi-branch conditionals.
 
 Example:
 
