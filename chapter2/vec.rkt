@@ -1,4 +1,4 @@
-; Vector ADT Implementation 
+; Vector ADT Implementation with define-datatype
 
 #lang eopl
  
