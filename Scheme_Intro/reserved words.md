@@ -16,6 +16,7 @@
 14. [do](#do)
 15. [case](#case)
 16. [lang](#lang)
+17. [require](#require)
 
 # Reserved Words - Extended
 
@@ -326,3 +327,18 @@
 **Input:** None
 
 **Output:** Interprets the code using the EoPL (Essentials of Programming Languages) language variant.
+
+## require
+
+**Description:** Loads external libraries or modules into the Scheme environment.
+
+**Structure:** Library or Module Loading
+
+**Example:**
+
+```scheme
+(require 'library-name)
+```
+**Input:** None
+
+**Output:** Loads the specified library or module into the Scheme environment, making its functions and definitions available for use.
