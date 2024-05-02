@@ -28,7 +28,7 @@
 ; (insert MAT a b val)   =  Aij = val    where i=a and j=b
 ;                           Aij = MATij  otherwise
 ; (add-mat   MAT1 MAT2)  =  Aij = MAT1ij + MAT2ij   for 0<i<(rows MAT)+1  0<j<(cols MAT)+1  and MAT1 and MAT2 same dimentions
-                            error otherwise
+;                           error otherwise
 ; (rows (zeros m n ))    =  m
 ; (cols (zeros m n ))    =  n
 ; (is-I? MAT)            =  	
