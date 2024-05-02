@@ -1,3 +1,5 @@
+### question in page 87
+
 ```scheme
 #lang racket
 ; matrix ADT spec
