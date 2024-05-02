@@ -15,6 +15,7 @@
 13. [begin](#begin)
 14. [do](#do)
 15. [case](#case)
+16. [lang](#lang)
 
 # Reserved Words - Extended
 
@@ -309,3 +310,19 @@
 **Input:** `x = 2`
 
 **Output:** `"two"`
+
+## lang
+
+**Description:** Specifies the specific language or language variant being used in a Scheme program.
+
+**Structure:** Language Specification
+
+**Example:**
+
+```scheme
+#lang eopl
+```
+
+**Input:** None
+
+**Output:** Interprets the code using the EoPL (Essentials of Programming Languages) language variant.
