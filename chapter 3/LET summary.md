@@ -1,4 +1,4 @@
-# <p align="center"> Summary of `let` in Scheme </p>
+# <p align="center"> Summary of LET in Scheme </p>
 
 ### Table of Contents
 1. [Introduction](#introduction)
