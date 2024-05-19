@@ -1,0 +1,1 @@
+("5.2.1" ("936bb0a010d7e2fad5fdc8102b4ab07d3b264321" . "dec94c2a57f5cdfd0406784676408a86d0c52d83") (collects #"scheme" #"mzscheme.rkt") (collects #"mzscheme" #"main.rkt") (collects #"errortrace" #"errortrace-key.rkt"))
