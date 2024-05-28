@@ -1,0 +1,223 @@
+
+  (define Q2.3-is-power-of-2
+    '(
+      ;; Test 01: 9 is not a power of 2
+      (test-01 "
+let half-helper = proc (helper) proc (x)
+  if zero? (x)
+  then 0
+  else if zero? (-(x, 1))
+  then 0
+  else -(((helper helper) -(x, 2)), -1)
+in let half = proc (x) ((half-helper half-helper) x)
+in let is-power-of-2-helper = proc (helper) proc (x)
+  if zero? (x)
+  then zero?(1)
+  else if zero? (-(x, 1))
+  then zero?(0) 
+  else let next = (half x)
+    in if zero? (-(x, -(next, -(0, next))))
+      then ((helper helper) next)
+      else zero?(1)
+in let is-power-of-2 = proc (x) ((is-power-of-2-helper is-power-of-2-helper) x)
+in (is-power-of-2 9)
+" #f)
+
+      ;; Test 02: 1 is a power of 2 (2^0)
+      (test-02 "
+let half-helper = proc (helper) proc (x)
+  if zero? (x)
+  then 0
+  else if zero? (-(x, 1))
+  then 0
+  else -(((helper helper) -(x, 2)), -1)
+in let half = proc (x) ((half-helper half-helper) x)
+in let is-power-of-2-helper = proc (helper) proc (x)
+  if zero? (x)
+  then zero?(1)
+  else if zero? (-(x, 1))
+  then zero?(0) 
+  else let next = (half x)
+    in if zero? (-(x, -(next, -(0, next))))
+      then ((helper helper) next)
+      else zero?(1)
+in let is-power-of-2 = proc (x) ((is-power-of-2-helper is-power-of-2-helper) x)
+in (is-power-of-2 1)
+" #t)
+
+      ;; Test 03: 2 is a power of 2 (2^1)
+      (test-03 "
+let half-helper = proc (helper) proc (x)
+  if zero? (x)
+  then 0
+  else if zero? (-(x, 1))
+  then 0
+  else -(((helper helper) -(x, 2)), -1)
+in let half = proc (x) ((half-helper half-helper) x)
+in let is-power-of-2-helper = proc (helper) proc (x)
+  if zero? (x)
+  then zero?(1)
+  else if zero? (-(x, 1))
+  then zero?(0) 
+  else let next = (half x)
+    in if zero? (-(x, -(next, -(0, next))))
+      then ((helper helper) next)
+      else zero?(1)
+in let is-power-of-2 = proc (x) ((is-power-of-2-helper is-power-of-2-helper) x)
+in (is-power-of-2 2)
+" #t)
+
+      ;; Test 04: 4 is a power of 2 (2^2)
+      (test-04 "
+let half-helper = proc (helper) proc (x)
+  if zero? (x)
+  then 0
+  else if zero? (-(x, 1))
+  then 0
+  else -(((helper helper) -(x, 2)), -1)
+in let half = proc (x) ((half-helper half-helper) x)
+in let is-power-of-2-helper = proc (helper) proc (x)
+  if zero? (x)
+  then zero?(1)
+  else if zero? (-(x, 1))
+  then zero?(0) 
+  else let next = (half x)
+    in if zero? (-(x, -(next, -(0, next))))
+      then ((helper helper) next)
+      else zero?(1)
+in let is-power-of-2 = proc (x) ((is-power-of-2-helper is-power-of-2-helper) x)
+in (is-power-of-2 4)
+" #t)
+
+      ;; Test 05: 8 is a power of 2 (2^3)
+      (test-05 "
+let half-helper = proc (helper) proc (x)
+  if zero? (x)
+  then 0
+  else if zero? (-(x, 1))
+  then 0
+  else -(((helper helper) -(x, 2)), -1)
+in let half = proc (x) ((half-helper half-helper) x)
+in let is-power-of-2-helper = proc (helper) proc (x)
+  if zero? (x)
+  then zero?(1)
+  else if zero? (-(x, 1))
+  then zero?(0) 
+  else let next = (half x)
+    in if zero? (-(x, -(next, -(0, next))))
+      then ((helper helper) next)
+      else zero?(1)
+in let is-power-of-2 = proc (x) ((is-power-of-2-helper is-power-of-2-helper) x)
+in (is-power-of-2 8)
+" #t)
+
+      ;; Test 06: 16 is a power of 2 (2^4)
+      (test-06 "
+let half-helper = proc (helper) proc (x)
+  if zero? (x)
+  then 0
+  else if zero? (-(x, 1))
+  then 0
+  else -(((helper helper) -(x, 2)), -1)
+in let half = proc (x) ((half-helper half-helper) x)
+in let is-power-of-2-helper = proc (helper) proc (x)
+  if zero? (x)
+  then zero?(1)
+  else if zero? (-(x, 1))
+  then zero?(0) 
+  else let next = (half x)
+    in if zero? (-(x, -(next, -(0, next))))
+      then ((helper helper) next)
+      else zero?(1)
+in let is-power-of-2 = proc (x) ((is-power-of-2-helper is-power-of-2-helper) x)
+in (is-power-of-2 16)
+" #t)
+
+      ;; Test 07: 32 is a power of 2 (2^5)
+      (test-07 "
+let half-helper = proc (helper) proc (x)
+  if zero? (x)
+  then 0
+  else if zero? (-(x, 1))
+  then 0
+  else -(((helper helper) -(x, 2)), -1)
+in let half = proc (x) ((half-helper half-helper) x)
+in let is-power-of-2-helper = proc (helper) proc (x)
+  if zero? (x)
+  then zero?(1)
+  else if zero? (-(x, 1))
+  then zero?(0) 
+  else let next = (half x)
+    in if zero? (-(x, -(next, -(0, next))))
+      then ((helper helper) next)
+      else zero?(1)
+in let is-power-of-2 = proc (x) ((is-power-of-2-helper is-power-of-2-helper) x)
+in (is-power-of-2 32)
+" #t)
+
+      ;; Test 08: 64 is a power of 2 (2^6)
+      (test-08 "
+let half-helper = proc (helper) proc (x)
+  if zero? (x)
+  then 0
+  else if zero? (-(x, 1))
+  then 0
+  else -(((helper helper) -(x, 2)), -1)
+in let half = proc (x) ((half-helper half-helper) x)
+in let is-power-of-2-helper = proc (helper) proc (x)
+  if zero? (x)
+  then zero?(1)
+  else if zero? (-(x, 1))
+  then zero?(0) 
+  else let next = (half x)
+    in if zero? (-(x, -(next, -(0, next))))
+      then ((helper helper) next)
+      else zero?(1)
+in let is-power-of-2 = proc (x) ((is-power-of-2-helper is-power-of-2-helper) x)
+in (is-power-of-2 64)
+" #t)
+
+      ;; Test 09: 100 is not a power of 2
+      (test-09 "
+let half-helper = proc (helper) proc (x)
+  if zero? (x)
+  then 0
+  else if zero? (-(x, 1))
+  then 0
+  else -(((helper helper) -(x, 2)), -1)
+in let half = proc (x) ((half-helper half-helper) x)
+in let is-power-of-2-helper = proc (helper) proc (x)
+  if zero? (x)
+  then zero?(1)
+  else if zero? (-(x, 1))
+  then zero?(0) 
+  else let next = (half x)
+    in if zero? (-(x, -(next, -(0, next))))
+      then ((helper helper) next)
+      else zero?(1)
+in let is-power-of-2 = proc (x) ((is-power-of-2-helper is-power-of-2-helper) x)
+in (is-power-of-2 100)
+" #f)
+
+       ;; Test 10: 4096 is a power of 2 (2^12)
+      (test-10 "
+let half-helper = proc (helper) proc (x)
+  if zero? (x)
+  then 0
+  else if zero? (-(x, 1))
+  then 0
+  else -(((helper helper) -(x, 2)), -1)
+in let half = proc (x) ((half-helper half-helper) x)
+in let is-power-of-2-helper = proc (helper) proc (x)
+  if zero? (x)
+  then zero?(1)
+  else if zero? (-(x, 1))
+  then zero?(0) 
+  else let next = (half x)
+   in if zero? (-(x, -(next, -(0,next))))
+    then ((helper helper) next)
+    else zero?(1)
+in let is-power-of-2 = proc (x) ((is-power-of-2-helper is-power-of-2-helper) x)
+in (is-power-of-2 4096)
+" #t)
+      ))

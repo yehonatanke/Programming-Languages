@@ -1,0 +1,33 @@
+ ;; צריך להריץ (run-all-recursive) בקובץ הקוד המצורף. הטסטים מועתקים גם לכאן:
+
+  ;; Q1.3 - Recursive Implementation for PROC
+  (define recursive-test-list
+    '(
+      ;; recursive sum-up-to-n test
+
+      ;; Check the recursive sum of numbers from 1 to n
+      (sum-up-to-n-test-1 "let p = proc(n)
+         if zero?(n) then 0
+          else - (n, -(0,(p -(n, 1))))
+         in (p 2)" 3)
+
+      (sum-up-to-n-test-1 "let p = proc(n)
+         if zero?(n) then 0
+          else - (n, -(0,(p -(n, 1))))
+         in (p 3)" 6)
+
+      (sum-up-to-n-test-1 "let p = proc(n)
+         if zero?(n) then 0
+          else - (n, -(0,(p -(n, 1))))
+         in (p 4)" 10)
+
+      (sum-up-to-n-test-1 "let p = proc(n)
+         if zero?(n) then 0
+          else - (n, -(0,(p -(n, 1))))
+         in (p 5)" 15)
+
+      (sum-up-to-n-test-1 "let p = proc(n)
+         if zero?(n) then 0
+          else - (n, -(0,(p -(n, 1))))
+         in (p 10)" 55)
+      ))

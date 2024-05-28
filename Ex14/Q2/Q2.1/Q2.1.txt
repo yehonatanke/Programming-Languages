@@ -1,0 +1,61 @@
+ 
+
+  (define Q2.1-tests
+    '(
+      ;; Test with equal values
+      (equal-values-test "let x = 5 in let y = 5 in let f = proc(x)
+           proc(y)
+           if zero?(-(x,y)) then zero?(-(x,y))
+           else if zero?(-(-(x,0),y)) then -(-(0,x),y)
+           else zero?(-(-(0,x),y))
+          in ((f x) y)" #t)
+
+      ;; Test with non-equal and non-opposite values
+      (non-equal-non-opposite-values-test "let x = 3 in let y = 4 in let f = proc(x)
+                                             proc(y)
+                                             if zero?(-(x,y)) then zero?(-(x,y))
+                                             else if zero?(-(-(x,0),y)) then -(-(0,x),y)
+                                             else zero?(-(-(0,x),y))
+                                           in ((f x) y)" #f)
+
+      ;; Test with opposite values
+      (opposite-values-test "let x = 6 in let y = -6 in let f = proc(x)
+                              proc(y)
+                              if zero?(-(x,y)) then zero?(-(x,y))
+                              else if zero?(-(-(x,0),y)) then -(-(0,x),y)
+                              else zero?(-(-(0,x),y))
+                            in ((f x) y)" #t)
+
+      ;; Test with zero values
+      (zero-values-test "let x = 0 in let y = 0 in let f = proc(x)
+                          proc(y)
+                          if zero?(-(x,y)) then zero?(-(x,y))
+                          else if zero?(-(-(x,0),y)) then -(-(0,x),y)
+                          else zero?(-(-(0,x),y))
+                        in ((f x) y)" #t)
+
+      ;; Test with different positive and negative values
+      (different-positive-negative-test "let x = 5 in let y = -5 in let f = proc(x)
+                                          proc(y)
+                                          if zero?(-(x,y)) then zero?(-(x,y))
+                                          else if zero?(-(-(x,0),y)) then -(-(0,x),y)
+                                          else zero?(-(-(0,x),y))
+                                        in ((f x) y)" #t)
+
+      ;; Test with different negative values
+      (different-negative-values-test "let x = -3 in let y = -4 in let f = proc(x)
+                                         proc(y)
+                                         if zero?(-(x,y)) then zero?(-(x,y))
+                                         else if zero?(-(-(x,0),y)) then -(-(0,x),y)
+                                         else zero?(-(-(0,x),y))
+                                       in ((f x) y)" #f)
+
+      ;; Test with positive and zero values
+      (positive-zero-values-test "let x = 5 in let y = 0 in let f = proc(x)
+                                    proc(y)
+                                    if zero?(-(x,y)) then zero?(-(x,y))
+                                    else if zero?(-(-(x,0),y)) then -(-(0,x),y)
+                                    else zero?(-(-(0,x),y))
+                                  in ((f x) y)" #f)
+      )
+    )
