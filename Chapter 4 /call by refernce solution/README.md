@@ -1,0 +1,1 @@
+דוגמה להרחבת שפת "וירמוז" (IMPLICIT-REFS) עם call-by-reference
