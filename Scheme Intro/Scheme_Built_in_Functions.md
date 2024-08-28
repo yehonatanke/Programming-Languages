@@ -505,6 +505,21 @@ This list includes common built-in functions in Scheme.
 
 ## Control Functions
 
+- `cond`: Conditional expression
+  - Example:
+    ```scheme
+    (define (describe-number x)
+      (cond
+        ((< x 0) "negative")
+        ((= x 0) "zero")
+        ((< x 10) "small positive")
+        (else "large positive")))
+    
+    (describe-number 5)
+    ```
+  - Output: `"small positive"`
+  - Explanation: Evaluates a series of test clauses and returns the value of the first clause whose test is true. The `else` clause is optional and acts as a catch-all.
+
 - `apply`: Apply function to list
   - Example:
     ```scheme
