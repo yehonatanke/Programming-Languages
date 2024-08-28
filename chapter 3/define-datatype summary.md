@@ -9,8 +9,6 @@
 
 ## Syntax
 
-## Syntax
-
 ```scheme
 (define-datatype type-name type-predicate
   (variant1 (field1 predicate1)
