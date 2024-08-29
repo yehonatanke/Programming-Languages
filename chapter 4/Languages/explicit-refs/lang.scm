@@ -4,7 +4,7 @@
   
   (require "drscheme-init.scm")
   
-  (provide (all-defined))
+  (provide (all-defined-out))
 
   ;;;;;;;;;;;;;;;; grammatical specification ;;;;;;;;;;;;;;;;
   
@@ -71,20 +71,6 @@
       (expression
         ("setref" "(" expression "," expression ")")
         setref-exp)
-
-      ;; new for arrays
-
-      (type
-       ("num" "bool" "proc")  
-       type-exp)
-
-      (expression
-       (type "[" expression "]" "{" (separated-list expression ",") "}")
-       arr-exp)
-
-      (expression
-        ("[" expression "," expression "]")
-        index-exp)
 
       ))
 

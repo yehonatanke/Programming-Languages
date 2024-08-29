@@ -5,11 +5,6 @@
   
   (define test-list
     '(
-      ;; array tests
-      (simple-array "#[3]{1,2,3}" (array 1 2 3))
-      (array-ref "[#[3]{1,2,3},1]" 2)
-      (array-out-of-bounds "[#[3]{1,2,3},3]" error)
-      (array-type-mismatch "?[2]{1,2}" error)
   
       ;; simple arithmetic
       (positive-const "11" 11)

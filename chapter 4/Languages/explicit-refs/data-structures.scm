@@ -3,12 +3,12 @@
   (require "lang.scm")                  ; for expression?
   (require "store.scm")                 ; for reference?
 
-  (provide (all-defined))               ; too many things to list
+  (provide (all-defined-out))               ; too many things to list
 
 ;;;;;;;;;;;;;;;; expressed values ;;;;;;;;;;;;;;;;
 
 ;;; an expressed value is either a number, a boolean, a procval, or a
-;;; reference, or an array. 
+;;; reference. 
 
   (define-datatype expval expval?
     (num-val
@@ -19,8 +19,6 @@
       (proc proc?))
     (ref-val
       (ref reference?))
-    (array-val
-      (arr (list-of expval?)))
     )
 
 ;;; extractors:
@@ -48,12 +46,6 @@
       (cases expval v
 	(ref-val (ref) ref)
 	(else (expval-extractor-error 'reference v)))))
-
-  (define expval->array
-    (lambda (v)
-      (cases expval v
-	(array-val (arr) arr)
-	(else (expval-extractor-error 'array v)))))
 
   (define expval-extractor-error
     (lambda (variant value)
@@ -105,8 +97,7 @@
 	  (cases proc p
 	    (procedure (var body saved-env)
 	      (list 'procedure var '... (env->list saved-env)))))
-	(array-val (arr)
-          (cons 'array (map expval->printable arr)))
 	(else val))))
+
 
 )

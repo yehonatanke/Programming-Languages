@@ -108,31 +108,6 @@
               (begin
                 (setref! ref v2)
                 (num-val 23)))))
-
-        (arr-exp (typ size-exp init-exps)
-                 (let ((size (expval->num (value-of size-exp env)))
-                       (init-vals (map (lambda (e) (value-of e env)) init-exps))
-                       (arr-type (type-of typ)))
-                   (cond
-                     ((< size 0) (eopl:error 'value-of "Array size must be non-negative"))
-                     ((not (= (length init-vals) size))
-                      (eopl:error 'value-of "Array size does not match initializer list"))
-                     ((not (every? (lambda (val)
-                                     (case arr-type
-                                       ((number) (num-val? val))
-                                       ((boolean) (bool-val? val))
-                                       ((procedure) (proc-val? val))
-                                       (else #f)))
-                                   init-vals))
-                      (eopl:error 'value-of "Array initializer types do not match declared type"))
-                     (else (array-val init-vals)))))
-      
-        (index-exp (arr-exp index-exp)
-                   (let ((arr (expval->array (value-of arr-exp env)))
-                         (index (expval->num (value-of index-exp env))))
-                     (if (and (>= index 0) (< index (length arr)))
-                         (list-ref arr index)
-                         (eopl:error 'value-of "Array index out of bounds: ~s" index))))
         )))
 
   ;; apply-procedure : Proc * ExpVal -> ExpVal
@@ -151,7 +126,7 @@
         (procedure (var body saved-env)
 	  (let ((r arg))
 	    (let ((new-env (extend-env var r saved-env)))
-	      (if (instrument-let)
+	      (when (instrument-let)
 		(begin
 		  (eopl:printf
 		    "entering body of proc ~s with env =~%"
@@ -173,31 +148,6 @@
             (car p)
             (expval->printable (cadr p))))
         l)))
-
-  (define type-of
-    (lambda (typ)
-      (cases type typ
-        (type-exp (t)
-                  (cond
-                    ((eq? t 'num) 'number)    
-                    ((eq? t 'bool) 'boolean)  
-                    ((eq? t 'proc) 'procedure) 
-                    (else (eopl:error 'type-of "Unknown type ~s" t)))))))
-
-  (define (num-val? val)
-    (cases expval val
-      (num-val (_) #t)
-      (else #f)))
-
-  (define (bool-val? val)
-    (cases expval val
-      (bool-val (_) #t)
-      (else #f)))
-
-  (define (proc-val? val)
-    (cases expval val
-      (proc-val (_) #t)
-      (else #f)))
  
   )
   
